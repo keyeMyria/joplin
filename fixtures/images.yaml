@@ -45,4 +45,32 @@ images:
         filename: fixtures/images/gb.jpg
         alt_text_en: Game Boy
         tags:
-            - gameboy
+            - gb
+    - 
+        filename: fixtures/images/gbp.jpg
+        alt_text_en: Game Boy Pocket
+        tags:
+            - gb
+    - 
+        filename: fixtures/images/gbc.jpg
+        alt_text_en: Game Boy Color
+        tags:
+            - gb
+    - 
+        filename: fixtures/images/gba.jpg
+        alt_text_en: Game Boy Advance
+        tags:
+            - gb
+            - gba
+    - 
+        filename: fixtures/images/gbasp.png
+        alt_text_en: Game Boy Advance SP
+        tags:
+            - gb
+            - gba
+    - 
+        filename: fixtures/images/gbam.png
+        alt_text_en: Game Boy Micro
+        tags:
+            - gb
+            - gba
