@@ -76,6 +76,7 @@ class ServicePage(Page):
             ('what_do_i_do_with_block', custom_blocks.WhatDoIDoWithBlock()),
             ('collection_schedule_block', custom_blocks.CollectionScheduleBlock()),
             ('recollect_block', custom_blocks.RecollectBlock()),
+            ('imagegallery_block', custom_blocks.ImageGalleryBlock()),
         ],
         verbose_name='Add any forms, maps, apps, or content that will help the resident use the service',
     )

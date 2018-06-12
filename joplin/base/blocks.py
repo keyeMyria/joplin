@@ -13,7 +13,6 @@ class WhatDoIDoWithBlock(blocks.StaticBlock):
         label = 'What do I do with...'
         admin_text = label
 
-
 class CollectionScheduleBlock(blocks.StaticBlock):
     class Meta:
         icon = 'bin'
@@ -25,4 +24,10 @@ class RecollectBlock(blocks.StaticBlock):
     class Meta:
         icon = 'bin'
         label = 'Recollect'
+        admin_text = label
+
+class ImageGalleryBlock(blocks.CharBlock):
+    class Meta:
+        icon = 'image'
+        label = 'Image Gallery'
         admin_text = label
