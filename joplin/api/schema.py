@@ -81,11 +81,15 @@ class ServicePageContactNode(DjangoObjectType):
 
 
 class TranslatedImageNode(DjangoObjectType):
+    tags = graphene.List(graphene.String)
     class Meta:
         model = TranslatedImage
         interfaces = [graphene.Node]
+        filter_fields = ['tags__name']
         exclude_fields = ['tags']
     filename = graphene.String()
+    def resolve_tags(self, info):
+        return self.tags.names();
 
 
 class Language(graphene.Enum):
@@ -144,6 +148,7 @@ class Query(graphene.ObjectType):
     all_topics = DjangoFilterConnectionField(TopicNode)
     all_departments = DjangoFilterConnectionField(DepartmentNode)
     all_311 = DjangoFilterConnectionField(ThreeOneOneNode)
+    all_images = DjangoFilterConnectionField(TranslatedImageNode)
 
     def resolve_service_page(self, resolve_info, id=None, pk=None, slug=None, show_preview=None, language=None):
         if not language:
