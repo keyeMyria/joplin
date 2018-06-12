@@ -41,3 +41,8 @@ images:
         alt_text_es:
         alt_text_vi:
         alt_text_ar:
+    - 
+        filename: fixtures/images/gb.jpg
+        alt_text_en: Game Boy
+        tags:
+            - gameboy

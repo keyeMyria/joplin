@@ -19,6 +19,11 @@ def load_image(data):
     data = {k.replace('alt_text', 'title') if k.startswith('alt_text') else k: v for k, v in data.items()}
     data['title'] = data['title_en']
 
+    tags = None
+    if 'tags' in data:
+        tags = data['tags']
+        del data['tags']
+
     filename = data.pop('filename')
     filepath = Path(filename)
     with open(filename, 'rb') as f:
@@ -28,6 +33,9 @@ def load_image(data):
 
     print(f'{"✅  Created" if created else "⭐  Updated"} {filepath.name} => {image.file.name}')
 
+    if tags:
+        image.tags.set(*tags)
+    
     return image
 
 
