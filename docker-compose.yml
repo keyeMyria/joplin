@@ -3,8 +3,6 @@ version: '3'
 services:
   db:
     image: postgres
-    ports:
-    - "5432:5432"
   web:
     build: .
     command: python3 ./joplin/manage.py runserver 0.0.0.0:8000
@@ -16,22 +14,12 @@ services:
       - db
     environment:
       - LOAD_DATA=off
-  prisma:
-    image: prismagraphql/prisma:1.7
-    restart: always
+  postgraphile:
+    image: graphile/postgraphile
+    command:  --connection postgres://postgres@db:5432
     ports:
-    - "4466:4466"
+    - "5000:5000"
+    depends_on:
+      - db
     environment:
-      PRISMA_CONFIG: |
-        managementApiSecret: my-server-secret-123
-        port: 4466
-        databases:
-          default:
-            connector: postgres
-            host: db
-            port: 5432
-            user: postgres
-            migrations: true
-            managementSchema: management
-            database: postgres
-            active: true
+      - conn
